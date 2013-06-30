@@ -1,5 +1,12 @@
-Dump1090 README
+Dump1090 IC7K README
 ===
+
+*****************
+
+Modified by IC7K for small TV screens table with no LAT LON Messages positions.
+You can increase font size after this mods.
+
+*****************
 
 Dump 1090 is a Mode S decoder specifically designed for RTLSDR devices.
 

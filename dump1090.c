@@ -1805,13 +1805,13 @@ void interactiveShowData(void) {
     int count = 0;
 
     memset(progress,' ',3);
-    progress[time(NULL)%3] = '.';
+    progress[time(NULL)%3] = '>';
     progress[3] = '\0';
 
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
 "Hex    Flight   Altitude  Speed   Trk Seen %s\n"
-"---------------------------------------------\n",
+"----------------------------------------------\n",
         progress);
 /*
     printf(
