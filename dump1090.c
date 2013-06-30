@@ -1810,8 +1810,8 @@ void interactiveShowData(void) {
 
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
-"Hex    Flight   Altitude  Spd     Trk  Time %s\n"
-"----------------------------------------------\n",
+"Hex    Flight   Altitude  Spd  Trk  Tout %s\n"
+"--------------------------------------------\n",
         progress);
 /*
     printf(
