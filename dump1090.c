@@ -1810,9 +1810,15 @@ void interactiveShowData(void) {
 
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
+"Hex    Flight   Altitude  Speed   Track  Messages Seen %s\n"
+"--------------------------------------------------------------------------------\n",
+        progress);
+/*
+    printf(
 "Hex    Flight   Altitude  Speed   Lat       Lon       Track  Messages Seen %s\n"
 "--------------------------------------------------------------------------------\n",
         progress);
+*/		
 
     while(a && count < Modes.interactive_rows) {
         int altitude = a->altitude, speed = a->speed;
