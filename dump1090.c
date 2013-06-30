@@ -1811,7 +1811,7 @@ void interactiveShowData(void) {
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
 "Hex    Flight  Alt    Spd  Trk  Tout %s\n"
-"--------------------------------------------\n",
+"----------------------------------------\n",
         progress);
 /*
     printf(
@@ -1829,7 +1829,7 @@ void interactiveShowData(void) {
             speed *= 1.852;
         }
 
-        printf("%-6s %-7s %-5d %-4d %-3d  %dsec\n",
+        printf("%-6s %-6s %-6d %-4d %-3d  %dsec\n",
             a->hexaddr, a->flight, altitude, speed,
             a->track,
             (int)(now - a->seen));	
