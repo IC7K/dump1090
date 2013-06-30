@@ -1832,9 +1832,7 @@ void interactiveShowData(void) {
         printf("%-6s %-8s %-9d %-7d %-3d %d sec\n",
             a->hexaddr, a->flight, altitude, speed,
             a->track,
-            (int)(now - a->seen));
-			
-		printf("adsbradar.ru 2013");			
+            (int)(now - a->seen));	
 			
 /*        printf("%-6s %-8s %-9d %-7d %-7.03f   %-7.03f   %-3d   %-9ld %d sec\n",
             a->hexaddr, a->flight, altitude, speed,
@@ -1844,6 +1842,8 @@ void interactiveShowData(void) {
         a = a->next;
         count++;
     }
+	
+	printf("\nadsbradar.ru 2013\n");		
 }
 
 /* When in interactive mode If we don't receive new nessages within
