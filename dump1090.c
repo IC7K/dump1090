@@ -1821,8 +1821,8 @@ void interactiveShowData(void) {
 
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
-"Hex    Flight   Alt    Spd  Trk  Tout %s\n"
-"-----------------------------------------\n",
+"Hex    Flight   Alt    Spd  VSpd  Trk  Tout %s\n"
+"-----------------------------------------------\n",
         progress);
 /*
     printf(
@@ -1838,6 +1838,7 @@ void interactiveShowData(void) {
         if (Modes.metric) {
             altitude /= 3.2828;
             speed *= 1.852;
+			vspeed *= 0.3;
         }
 
 		if (a->flight[0] == '\0')
