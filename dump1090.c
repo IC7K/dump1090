@@ -1810,7 +1810,7 @@ void interactiveShowData(void) {
 
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
-"Hex    Flight  Alt    Spd  Trk  Tout %s\n"
+"Hex    Flight   Alt    Spd  Trk  Tout %s\n"
 "----------------------------------------\n",
         progress);
 /*
