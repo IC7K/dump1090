@@ -1829,7 +1829,7 @@ void interactiveShowData(void) {
             speed *= 1.852;
         }
 
-		if (a->flight == '\0') {a->flight = "------\0";}
+		if (a->flight[0] == '\0') {a->flight[0] = '-'; a->flight[5] = '-';}
 		
         printf("%-6s %-6s %-6d %-4d %-3d  %dsec\n",
             a->hexaddr, a->flight, altitude, speed,
