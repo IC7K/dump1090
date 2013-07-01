@@ -104,8 +104,10 @@ struct aircraft {
     uint32_t addr;      /* ICAO address */
     char hexaddr[7];    /* Printable ICAO address */
     char flight[9];     /* Flight number */
+    char reg[9];        /* Registration number */	
     int altitude;       /* Altitude */
     int speed;          /* Velocity computed from EW and NS components. */
+	int vspeed;			/* Vertical speed */
     int track;          /* Angle of flight. */
     time_t seen;        /* Time at which the last packet was received. */
     long messages;      /* Number of Mode S messages received. */
