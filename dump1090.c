@@ -1825,7 +1825,7 @@ void interactiveShowData(void) {
 */		
 
     while(a && count < Modes.interactive_rows) {
-        int altitude = a->altitude, speed = a->speed;
+        int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed;
 
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric) {
@@ -1836,18 +1836,26 @@ void interactiveShowData(void) {
 		if (a->flight[0] == '\0')
 		{
 			a->flight[0] = '-';
-			a->flight[1] = '-';
-			a->flight[2] = '-';
-			a->flight[3] = '-';
-			a->flight[4] = '-';
-			a->flight[5] = '-';
-			a->flight[6] = '\0';			
+			a->flight[1] = ' ';
+			a->flight[2] = ' ';
+			a->flight[3] = ' ';
+			a->flight[4] = ' ';
+			a->flight[5] = ' ';
+			a->flight[6] = ' ';
+			a->flight[7] = ' ';
+			a->flight[8] = '\0';			
 		}
 		
-        printf("%-6s %-6s %-6d %-4d %-3d  %dsec\n",
-            a->hexaddr, a->flight, altitude, speed,
+/*
+                mm->vert_rate_source = (msg[8]&0x10) >> 4;
+                mm->vert_rate_sign = (msg[8]&0x8) >> 3;
+                mm->vert_rate = ((msg[8]&7) << 6) | ((msg[9]&0xfc) >> 2);
+*/		
+		
+        printf("%-6s %-6s %-6d %-4d %-4d %-3d  %dsec\n",
+            a->hexaddr, a->flight, altitude, speed, vspeed,
             a->track,
-            (int)(now - a->seen));	
+            (int)(now - a->seen),);	
 			
 /*        printf("%-6s %-8s %-9d %-7d %-7.03f   %-7.03f   %-3d   %-9ld %d sec\n",
             a->hexaddr, a->flight, altitude, speed,
