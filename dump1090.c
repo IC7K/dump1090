@@ -1829,6 +1829,8 @@ void interactiveShowData(void) {
             speed *= 1.852;
         }
 
+		if (a->flight == '') {a->flight = "------";}
+		
         printf("%-6s %-6s %-6d %-4d %-3d  %dsec\n",
             a->hexaddr, a->flight, altitude, speed,
             a->track,
