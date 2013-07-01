@@ -1855,7 +1855,7 @@ void interactiveShowData(void) {
         printf("%-6s %-6s %-6d %-4d %-4d %-3d  %dsec\n",
             a->hexaddr, a->flight, altitude, speed, vspeed,
             a->track,
-            (int)(now - a->seen),);	
+            (int)(now - a->seen));	
 			
 /*        printf("%-6s %-8s %-9d %-7d %-7.03f   %-7.03f   %-3d   %-9ld %d sec\n",
             a->hexaddr, a->flight, altitude, speed,
