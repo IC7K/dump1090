@@ -2442,6 +2442,7 @@ void showHelp(void) {
 "                  p = Log frames with bad preamble\n"
 "                  n = Log network debugging info\n"
 "                  j = Log frames to frames.js, loadable by debug.html.\n"
+"\nPlease visit ADSBRADAR.ru for more information about ADS-B!\n"
     );
 }
 
