@@ -1771,8 +1771,8 @@ struct aircraft *interactiveReceiveData(struct modesMessage *mm) {
     a->messages++;
 
 			
-/*                printf("    Vertical rate sign: %d\n", mm->vert_rate_sign); */
-/*                printf("    Vertical rate     : %d\n", mm->vert_rate); */
+/* printf("    Vertical rate sign: %d\n", mm->vert_rate_sign); */
+/* printf("    Vertical rate     : %d\n", mm->vert_rate); */
 				
 	if (mm->msgtype == 17 && mm->metype == 19 && mm->mesub == 1)
 		{ a->vspeed = (mm->vert_rate_sign==0?1:-1) * (mm->vert_rate-1) * 64;	}	
