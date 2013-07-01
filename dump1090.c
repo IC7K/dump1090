@@ -1572,8 +1572,10 @@ struct aircraft *interactiveCreateAircraft(uint32_t addr) {
     a->addr = addr;
     snprintf(a->hexaddr,sizeof(a->hexaddr),"%06x",(int)addr);
     a->flight[0] = '\0';
+	a->reg[0] = '\0';
     a->altitude = 0;
     a->speed = 0;
+    a->vspeed = 0;	
     a->track = 0;
     a->odd_cprlat = 0;
     a->odd_cprlon = 0;
@@ -1829,7 +1831,16 @@ void interactiveShowData(void) {
             speed *= 1.852;
         }
 
-		if (a->flight[0] == '\0') {a->flight[0] = '-'; a->flight[5] = '-';}
+		if (a->flight[0] == '\0')
+		{
+			a->flight[0] = '-';
+			a->flight[1] = '-';
+			a->flight[2] = '-';
+			a->flight[3] = '-';
+			a->flight[4] = '-';
+			a->flight[5] = '-';
+			a->flight[6] = '\0';			
+		}
 		
         printf("%-6s %-6s %-6d %-4d %-3d  %dsec\n",
             a->hexaddr, a->flight, altitude, speed,
