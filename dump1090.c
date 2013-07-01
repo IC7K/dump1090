@@ -1770,6 +1770,13 @@ struct aircraft *interactiveReceiveData(struct modesMessage *mm) {
     a->seen = time(NULL);
     a->messages++;
 
+			
+/*                printf("    Vertical rate sign: %d\n", mm->vert_rate_sign); */
+/*                printf("    Vertical rate     : %d\n", mm->vert_rate); */
+				
+	if (mm->msgtype == 17 && mm->metype == 19 && mm->mesub == 1)
+		{ a->vspeed = (mm->vert_rate_sign==0?1:-1) * (mm->vert_rate-1) * 64;	}	
+				
     if (mm->msgtype == 0 || mm->msgtype == 4 || mm->msgtype == 20) {
         a->altitude = mm->altitude;
     } else if (mm->msgtype == 17) {
@@ -1815,7 +1822,7 @@ void interactiveShowData(void) {
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
 "Hex    Flight   Alt    Spd  Trk  Tout %s\n"
-"----------------------------------------\n",
+"-----------------------------------------\n",
         progress);
 /*
     printf(
@@ -1850,6 +1857,14 @@ void interactiveShowData(void) {
                 mm->vert_rate_source = (msg[8]&0x10) >> 4;
                 mm->vert_rate_sign = (msg[8]&0x8) >> 3;
                 mm->vert_rate = ((msg[8]&7) << 6) | ((msg[9]&0xfc) >> 2);
+				
+                printf("    Vertical rate sign: %d\n", mm->vert_rate_sign);
+                printf("    Vertical rate     : %d\n", mm->vert_rate);
+				
+				if (mm->msgtype == 17 && mm->metype == 19 && mm->mesub == 1) {
+				int vr = (mm->vert_rate_sign==0?1:-1) * (mm->vert_rate-1) * 64;				
+
+				
 */		
 		
         printf("%-6s %-6s %-6d %-4d %-4d %-3d  %dsec\n",
