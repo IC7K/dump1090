@@ -1814,18 +1814,18 @@ void interactiveShowData(void) {
     time_t now = time(NULL);
     char progress[4];
     int count = 0;
-	
-	//char flevel[4];
-	//flevel[3]='\0';	
-
+/*
+	char flevel[4];
+	flevel[3]='\0';	
+*/
     memset(progress,' ',3);
     progress[time(NULL)%3] = '>';
     progress[3] = '\0';
 
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
-"Hex%s Flight   Alt    Spd  VSpd  Trk  Tout\n"
-"-------------------------------------------\n",
+" Hex%s Flight   Alt    Spd  VSpd  Trk  Tout\n"
+" -------------------------------------------\n",
         progress);
 /*
     printf(
@@ -1839,7 +1839,8 @@ void interactiveShowData(void) {
 
 		
         /* Convert units to metric if --metric was specified. */
-        if (Modes.metric) { 060 6000 030 3000 33000 
+        if (Modes.metric)
+		{
             altitude /= 3.2828;
 			/*
 			if (altitude > 1000)
