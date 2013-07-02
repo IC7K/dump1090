@@ -1814,10 +1814,10 @@ void interactiveShowData(void) {
     time_t now = time(NULL);
     char progress[4];
     int count = 0;
-/*
+
 	char flevel[4];
 	flevel[3]='\0';	
-*/
+
     memset(progress,' ',3);
     progress[time(NULL)%3] = '>';
     progress[3] = '\0';
@@ -1842,7 +1842,7 @@ void interactiveShowData(void) {
         if (Modes.metric)
 		{
             altitude /= 3.2828;
-			/*
+			/*--------START FL------------------*/
 			if (altitude > 1000)
 			{
 			 flevel[0]='F'; flevel[1]='L';
@@ -1854,7 +1854,7 @@ void interactiveShowData(void) {
 			{
 			flevel[0]='\0';
 			}
-			*/
+			/*--------END FL--------------------*/
             speed *= 1.852;
 			vspeed *= 0.3;
         }
@@ -1886,8 +1886,8 @@ void interactiveShowData(void) {
 				
 */		
 		
-        printf(" %-6s %-6s %-6d %-4d %-4d  %-3d  %d\n",
-            a->hexaddr, a->flight, altitude, speed, vspeed,
+        printf(" %-6s %-6s %-3s%-6d %-4d %-4d  %-3d  %d\n",
+            a->hexaddr, a->flight, flevel, altitude, speed, vspeed,
             a->track,
             (int)(now - a->seen));	
 			
