@@ -1814,6 +1814,9 @@ void interactiveShowData(void) {
     time_t now = time(NULL);
     char progress[4];
     int count = 0;
+	
+	//char flevel[4];
+	//flevel[3]='\0';	
 
     memset(progress,' ',3);
     progress[time(NULL)%3] = '>';
@@ -1826,17 +1829,31 @@ void interactiveShowData(void) {
         progress);
 /*
     printf(
-"Hex    Flight   Altitude  Speed   Lat       Lon       Track  Messages Seen %s\n"
-"--------------------------------------------------------------------------------\n",
+" Hex    Flight   Altitude  Speed   Lat       Lon       Track  Messages Seen %s\n"
+" --------------------------------------------------------------------------------\n",
         progress);
 */		
 
     while(a && count < Modes.interactive_rows) {
         int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed;
 
+		
         /* Convert units to metric if --metric was specified. */
-        if (Modes.metric) {
+        if (Modes.metric) { 060 6000 030 3000 33000 
             altitude /= 3.2828;
+			/*
+			if (altitude > 1000)
+			{
+			 flevel[0]='F'; flevel[1]='L';
+			 altitude=a->altitude/100;
+			 if (altitude < 100) { flevel[2]='0';} else {flevel[2]='\0';}
+			
+			}
+			else
+			{
+			flevel[0]='\0';
+			}
+			*/
             speed *= 1.852;
 			vspeed *= 0.3;
         }
@@ -1868,7 +1885,7 @@ void interactiveShowData(void) {
 				
 */		
 		
-        printf("%-6s %-6s %-6d %-4d %-4d  %-3d  %d\n",
+        printf(" %-6s %-6s %-6d %-4d %-4d  %-3d  %d\n",
             a->hexaddr, a->flight, altitude, speed, vspeed,
             a->track,
             (int)(now - a->seen));	
