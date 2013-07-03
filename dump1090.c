@@ -1895,7 +1895,7 @@ void interactiveShowData(void) {
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf(" %-6s %-6s %-2s%-3d %-4d %-4d  %-3d  %d\n",
+				printf(" %-6s %-6s %-2s%-3d  %-4d %-4d  %-3d  %d\n",
 				a->hexaddr, a->flight, flevel, altitude, speed, vspeed,
 				a->track,
 				(int)(now - a->seen));	
