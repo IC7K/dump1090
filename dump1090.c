@@ -1888,7 +1888,7 @@ void interactiveShowData(void) {
 		if (flevel[0]=='\0')
 		{
         printf(" %-6s %-6s %-6d %-4d %-4d  %-3d  %d\n",
-            a->hexaddr, a->flight, flevel, altitude, speed, vspeed,
+            a->hexaddr, a->flight, altitude, speed, vspeed,
             a->track,
             (int)(now - a->seen));	
 		} else
