@@ -1824,8 +1824,8 @@ void interactiveShowData(void) {
 
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
-"Hex%s Flight   Alt    Spd  VSpd  Trk  Tout\n"
-"-------------------------------------------\n",
+" Hex%s Flight   Alt    Spd  VSpd  Trk  Tout\n"
+" -------------------------------------------\n",
         progress);
 /*
     printf(
@@ -1841,9 +1841,8 @@ void interactiveShowData(void) {
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric)
 		{
-            altitude /= 3.2828;
 			/*--------START FL------------------*/
-			if (altitude > 1000)
+			if (altitude > 5000)
 			{
 			 flevel[0]='F'; flevel[1]='L';
 			 altitude=a->altitude/100;
@@ -1852,6 +1851,7 @@ void interactiveShowData(void) {
 			}
 			else
 			{
+			altitude /= 3.2828;
 			flevel[0]='\0';
 			}
 			/*--------END FL--------------------*/
@@ -1895,13 +1895,13 @@ void interactiveShowData(void) {
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf("%-6s %-6s %-2s%-3d  %-4d %-4d  %-3d  %d\n",
+				printf(" %-6s %-6s %-2s%-3d  %-4d %-4d  %-3d  %d\n",
 				a->hexaddr, a->flight, flevel, altitude, speed, vspeed,
 				a->track,
 				(int)(now - a->seen));	
 				} else
 				{
-				printf("%-6s %-6s %-3s%-3d %-4d %-4d  %-3d  %d\n",
+				printf(" %-6s %-6s %-3s%-3d %-4d %-4d  %-3d  %d\n",
 				a->hexaddr, a->flight, flevel, altitude, speed, vspeed,
 				a->track,
 				(int)(now - a->seen));	
@@ -1916,7 +1916,7 @@ void interactiveShowData(void) {
         count++;
     }
 	
-	printf("\nadsbradar.ru 2013\n");		
+	printf("\n adsbradar.ru 2013\n");		
 }
 
 /* When in interactive mode If we don't receive new nessages within
