@@ -1841,9 +1841,8 @@ void interactiveShowData(void) {
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric)
 		{
-            altitude /= 3.2828;
 			/*--------START FL------------------*/
-			if (altitude > 1000)
+			if (altitude > 5000)
 			{
 			 flevel[0]='F'; flevel[1]='L';
 			 altitude=a->altitude/100;
@@ -1852,6 +1851,7 @@ void interactiveShowData(void) {
 			}
 			else
 			{
+			altitude /= 3.2828;
 			flevel[0]='\0';
 			}
 			/*--------END FL--------------------*/
