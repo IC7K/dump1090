@@ -1824,7 +1824,7 @@ void interactiveShowData(void) {
 
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
-"Hex%s Flight   Alt    Spd  VSpd  Trk  Tout\n"
+"Hex%s Flight   Alt    Spd  Trk  Tout  VSpd\n"
 "-------------------------------------------\n",
         progress);
 /*
