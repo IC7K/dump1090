@@ -1836,7 +1836,6 @@ void interactiveShowData(void) {
 
     while(a && count < Modes.interactive_rows) {
         int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed;
-
 		
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric)
@@ -1913,7 +1912,7 @@ void interactiveShowData(void) {
         count++;
     }
 	
-	printf("\n adsbradar.ru 2013\nAviation technologies\n");		
+	printf("\n adsbradar.ru 2013\n Aviation Technologies\n");		
 }
 
 /* When in interactive mode If we don't receive new nessages within
