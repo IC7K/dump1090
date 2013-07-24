@@ -1887,24 +1887,24 @@ void interactiveShowData(void) {
 */		
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
-        printf("%-6s %-6s %-6d %-4d %-4d  %-3d  %d\n",
-            a->hexaddr, a->flight, altitude, speed, vspeed,
+        printf("%-6s %-6s %-6d %-4d  %-3d  %d %-4d\n",
+            a->hexaddr, a->flight, altitude, speed, 
             a->track,
-            (int)(now - a->seen));	
+            (int)(now - a->seen),vspeed);	
 		} else
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf("%-6s %-6s %-2s%-3d  %-4d %-4d  %-3d  %d\n",
-				a->hexaddr, a->flight, flevel, altitude, speed, vspeed,
+				printf("%-6s %-6s %-2s%-3d  %-4d  %-3d  %d %-4d\n",
+				a->hexaddr, a->flight, flevel, altitude, speed, 
 				a->track,
-				(int)(now - a->seen));	
+				(int)(now - a->seen), vspeed);	
 				} else
 				{
-				printf("%-6s %-6s %-3s%-3d %-4d %-4d  %-3d  %d\n",
-				a->hexaddr, a->flight, flevel, altitude, speed, vspeed,
+				printf("%-6s %-6s %-3s%-3d %-4d  %-3d  %d %-4d\n",
+				a->hexaddr, a->flight, flevel, altitude, speed, 
 				a->track,
-				(int)(now - a->seen));	
+				(int)(now - a->seen), vspeed);	
 				}
 			}
 /*        printf("%-6s %-8s %-9d %-7d %-7.03f   %-7.03f   %-3d   %-9ld %d sec\n",
