@@ -1824,7 +1824,7 @@ void interactiveShowData(void) {
 
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
     printf(
-" Hex%s Flight   Alt    Spd  VSpd  Trk  Tout\n"
+" Hex%s Flight   Alt    Spd  Trk  Tout  VSpd\n"
 " -------------------------------------------\n",
         progress);
 /*
@@ -1893,11 +1893,11 @@ void interactiveShowData(void) {
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf(" %-6s %-6s %-2s%-3d  %-4d %-4d  %-3d  %d\n",
+				printf(" %-6s %-6s %-2s%-3d  %-4d  %-3d  %d %-4d\n",
 				a->hexaddr, a->flight, altitude, speed, a->track,(int)(now - a->seen), vspeed);		
 				} else
 				{
-				printf(" %-6s %-6s %-3s%-3d %-4d %-4d  %-3d  %d\n",
+				printf(" %-6s %-6s %-3s%-3d %-4d  %-3d  %d %-4d\n",
 				a->hexaddr, a->flight, altitude, speed, a->track,(int)(now - a->seen), vspeed);		
 				}
 			}
