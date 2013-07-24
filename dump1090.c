@@ -1887,7 +1887,7 @@ void interactiveShowData(void) {
 */		
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
-        printf(" %-6s %-6s %-6d %-4d %-4d  %-3d  %d\n",
+        printf("%-6s %-6s %-6d %-4d %-4d  %-3d  %d\n",
             a->hexaddr, a->flight, altitude, speed, vspeed,
             a->track,
             (int)(now - a->seen));	
