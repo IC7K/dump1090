@@ -1952,7 +1952,7 @@ void interactiveShowData(void) {
         count++;
     }
     // while(count < 9) {printf("                                           \n"); count++;}
-	printf("\nadsbradar.ru 2013-2014");		
+	printf("\nadsbradar.ru 2013-2014\n");		
 }
 
 /* When in interactive mode If we don't receive new nessages within
