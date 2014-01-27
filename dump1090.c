@@ -1840,6 +1840,7 @@ void interactiveShowData(void) {
     char progress[4];
     int count = 0;
 
+    //http://www.linuxforu.com/2011/08/spicing-up-console-for-fun-profit-1/
     // char redFont[] = "\x1b[0;0;0;31m";
     // char yellowFont[] = "\x1b[0;0;0;33m";
     // char greenFont[] = "\x1b[0;0;0;32m";   
@@ -1862,7 +1863,7 @@ void interactiveShowData(void) {
     progress[time(NULL)%3] = '>';
     progress[3] = '\0';
 
-    //http://www.linuxforu.com/2011/08/spicing-up-console-for-fun-profit-1/
+
     // printf("\x1b[H\x1b[2J");    /* Clear the screen */
 
     printf("\x1b[H");   //устанавливаем курсор в координаты 0,0
@@ -1934,9 +1935,16 @@ void interactiveShowData(void) {
 */		
         if ((now - a->seen)>10) {FontColor[9]=WhiteColor[0];} else
 
-        if (altitude==0) {FontColor[9]=MagentaColor[0];} else               
+        if ((altitude*speed)==0) {FontColor[9]=MagentaColor[0];} else               
 
-        if(vspeed<-1) {FontColor[9]=YellowColor[0];} else {FontColor[9]=CyanColor[0];}
+        if(vspeed<-1) {FontColor[9]=YellowColor[0];} else
+
+        if(vspeed>1) {FontColor[9]=GreenColor[0];} else {FontColor[9]=CyanColor[0];}        
+
+        if ((altitude*speed)==0) {
+        printf("%s%-6s %-6s ON THE GROUND                \n",
+            FontColor, a->hexaddr, a->flight);              
+        } else
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
