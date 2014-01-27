@@ -1840,13 +1840,13 @@ void interactiveShowData(void) {
     char progress[4];
     int count = 0;
 
-    char redFont[] = "\x1b[0;0;0;31m";
-    char yellowFont[] = "\x1b[0;0;0;33m";
-    char greenFont[] = "\x1b[0;0;0;32m";   
-    char blueFont[] = "\x1b[0;0;0;34m";   
-    char defaultFont[] = "\x1b[0m";
+    // char redFont[] = "\x1b[0;0;0;31m";
+    // char yellowFont[] = "\x1b[0;0;0;33m";
+    // char greenFont[] = "\x1b[0;0;0;32m";   
+    // char blueFont[] = "\x1b[0;0;0;34m";   
+    // char defaultFont[] = "\x1b[0m";
 
-    char FontColor[]="\x1b[0m";
+    char FontColor[]="\x1b[0;0;0;32m";
 
 	char flevel[4];
 	flevel[3]='\0';	
@@ -1928,7 +1928,7 @@ void interactiveShowData(void) {
 				
 */		if ((now - a->seen)>10) {tout[0]='*';} else {tout[0]=' ';}
 
-        if(vspeed<-5) {FontColor=yellowFont;} else {FontColor=defaultFont;}
+        if(vspeed<-5) {FontColor="\x1b[0;0;0;33m";} else {FontColor="\x1b[0;0;0;32m";}
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
