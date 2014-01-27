@@ -1941,10 +1941,10 @@ void interactiveShowData(void) {
 
         if(vspeed>1) {FontColor[9]=GreenColor[0];} else {FontColor[9]=CyanColor[0];}        
 
-        if ((altitude*speed)==0) {
-        printf("%s%-6s %-6s ON THE GROUND                \n",
-            FontColor, a->hexaddr, a->flight);              
-        } else
+        // if ((altitude*speed)==0) {
+        // printf("%s%-6s %-6s ON THE GROUND                \n",
+        //     FontColor, a->hexaddr, a->flight);              
+        // } else
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
