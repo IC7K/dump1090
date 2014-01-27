@@ -1932,11 +1932,11 @@ void interactiveShowData(void) {
 
 				
 */		
-        if ((now - a->seen)>10) {FontColor[12]=WhiteColor;} else
+        if ((now - a->seen)>10) {FontColor[12]=WhiteColor[0];} else
 
-        if (altitude==0) {FontColor[12]=MagentaColor;} else               
+        if (altitude==0) {FontColor[12]=MagentaColor[0];} else               
 
-        if(vspeed<-1) {FontColor[12]=YellowColor;} else {FontColor[12]=CyanColor;}
+        if(vspeed<-1) {FontColor[12]=YellowColor[0];} else {FontColor[12]=CyanColor[0];}
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
