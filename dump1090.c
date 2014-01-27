@@ -77,7 +77,7 @@
  * at least greater than a given level for us to dump the signal. */
 #define MODES_DEBUG_NOPREAMBLE_LEVEL 25
 
-#define MODES_INTERACTIVE_REFRESH_TIME 2000     /* Milliseconds */
+#define MODES_INTERACTIVE_REFRESH_TIME 1000     /* Milliseconds */
 #define MODES_INTERACTIVE_ROWS 15               /* Rows on screen */
 #define MODES_INTERACTIVE_TTL 60                /* TTL before being removed */
 
@@ -1965,7 +1965,7 @@ void interactiveShowData(void) {
         count++;
     }
     while(count < 10) {printf("                                             \n"); count++;}
-	printf("                       \x1b[0;0;0;34madsbradar.ru 2011-2014\x1b[0m\n");	// \n в конце не убирать! иначе мерцание!	
+	printf("\x1b[0;0;0;34mskyrail .ru          adsbradar.aero 2011-2014\n");	// \n в конце не убирать! иначе мерцание!	
 }
 
 /* When in interactive mode If we don't receive new nessages within
