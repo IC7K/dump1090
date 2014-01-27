@@ -1863,7 +1863,7 @@ void interactiveShowData(void) {
 
     printf(
 "Hex%s Flight   Alt    Spd  Trk   VSpd\n"
-"\x1b[0;0;0;31m-------------------------------------------\x1b[0m\n",
+"\x1b[0;0;0;31m---------------------------------------------\x1b[0m\n",
         progress);
 /*
     printf(
@@ -1872,8 +1872,8 @@ void interactiveShowData(void) {
         progress);
 */		
 
-    while(a && count < Modes.interactive_rows) {
-    // while(a && count < 14) {        //14 строк всего на экране
+    // while(a && count < Modes.interactive_rows) {
+    while(a && count < 10) {        //14 строк всего на экране
         int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed;
 
 		
@@ -1952,8 +1952,8 @@ void interactiveShowData(void) {
         a = a->next;
         count++;
     }
-    while(count < 9) {printf("                                           \n"); count++;}
-	printf("\nadsbradar.ru 2013-2014\n");	// \n в конце не уюирать! иначе мерцание!	
+    while(count < 10) {printf("                                             \n"); count++;}
+	printf("adsbradar.ru 2013-2014\n");	// \n в конце не уюирать! иначе мерцание!	
 }
 
 /* When in interactive mode If we don't receive new nessages within
