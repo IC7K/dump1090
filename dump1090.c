@@ -1840,10 +1840,13 @@ void interactiveShowData(void) {
     char progress[4];
     int count = 0;
 
-   // char redFont[] = "33[0;0;0;31m";
-   // char yellowFont[] = "33[0;0;0;33m";
-   // char greenFont[] = "33[0;0;0;32m";       
-   // char defaultFont[] = "33[0m";
+    char redFont[] = "\x1b[0;0;0;31m";
+    char yellowFont[] = "\x1b[0;0;0;33m";
+    char greenFont[] = "\x1b[0;0;0;32m";   
+    char blueFont[] = "\x1b[0;0;0;34m";   
+    char defaultFont[] = "\x1b[0m";
+
+    char FontColor[]=defaultFont;
 
 	char flevel[4];
 	flevel[3]='\0';	
@@ -1895,7 +1898,7 @@ void interactiveShowData(void) {
 			}
 			/*--------END FL--------------------*/
             speed *= 1.852;
-			vspeed *= 0.3;
+			vspeed *= 0.3/60; // vspeed=m/sec
         }
 
 		if (a->flight[0] == '\0')
@@ -1925,22 +1928,24 @@ void interactiveShowData(void) {
 				
 */		if ((now - a->seen)>10) {tout[0]='*';} else {tout[0]=' ';}
 
+        if(vspeed<-5) {FontColor=yellowFont;} else {FontColor=defaultFont;}
+
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
-        printf("%-6s %-6s %-6d %-4d  %-3d  %-4d  %-1s\n",
-            a->hexaddr, a->flight, altitude, speed, 
+        printf("%s%-6s %-6s %-6d %-4d  %-3d  %-4d  %-1s\n",
+            FontColor, a->hexaddr, a->flight, altitude, speed, 
             a->track,vspeed, tout);	
 		} else
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf("%-6s %-6s %-2s%-3d  %-4d  %-3d  %-4d  %-1s\n",
-				a->hexaddr, a->flight, flevel, altitude, speed, 
+				printf("%s%-6s %-6s %-2s%-3d  %-4d  %-3d  %-4d  %-1s\n",
+				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
 				a->track, vspeed, tout);	
 				} else
 				{
-				printf("%-6s %-6s %-3s%-3d %-4d  %-3d  %-4d  %-1s\n",
-				a->hexaddr, a->flight, flevel, altitude, speed, 
+				printf("%s%-6s %-6s %-3s%-3d %-4d  %-3d  %-4d  %-1s\n",
+				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
 				a->track, vspeed, tout);	
 				}
 			}
@@ -1953,7 +1958,7 @@ void interactiveShowData(void) {
         count++;
     }
     while(count < 10) {printf("                                             \n"); count++;}
-	printf("adsbradar.ru 2013-2014\n");	// \n в конце не уюирать! иначе мерцание!	
+	printf("                       \x1b[0;0;0;34madsbradar.ru 2011-2014\x1b[0m\n");	// \n в конце не убирать! иначе мерцание!	
 }
 
 /* When in interactive mode If we don't receive new nessages within
