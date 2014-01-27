@@ -1952,7 +1952,7 @@ void interactiveShowData(void) {
         count++;
     }
 	
-    while(count < 10) {printf("                                           \n"); count++;}
+    while(count < 9) {printf("                                           \n"); count++;}
 	printf("\nadsbradar.ru 2013");		
 }
 
