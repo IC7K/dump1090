@@ -1855,8 +1855,9 @@ void interactiveShowData(void) {
     progress[3] = '\0';
 
     //http://www.linuxforu.com/2011/08/spicing-up-console-for-fun-profit-1/
-    printf("\x1b[H\x1b[2J");    /* Clear the screen */
+    // printf("\x1b[H\x1b[2J");    /* Clear the screen */
 
+    printf("\x1b[H");   
 
 // Totally 14 lines on the screen
 
