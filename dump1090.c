@@ -1851,6 +1851,7 @@ void interactiveShowData(void) {
     char GreenColor[]="2";
     char WhiteColor[]="7";
     char MagentaColor[]="5";
+    char CyanColor[]="6";    
 
 	char flevel[4];
 	flevel[3]='\0';	
@@ -1869,7 +1870,7 @@ void interactiveShowData(void) {
 // Totally 13 lines on the screen
 
     printf(
-"\x1b[0;0;0;36mHex%s Flight   Alt    Spd  Trk   VSpd       \n"
+"\x1b[0;0;0;32mHex%s Flight   Alt    Spd  Trk   VSpd       \n"
 "\x1b[0;0;0;31m---------------------------------------------\n",
         progress);
 /*
@@ -1935,7 +1936,7 @@ void interactiveShowData(void) {
 
         if (altitude==0) {FontColor[10]=MagentaColor;} else               
 
-        if(vspeed<-5) {FontColor[10]=YellowColor;} else {FontColor[10]=GreenColor;}
+        if(vspeed<-5) {FontColor[10]=YellowColor;} else {FontColor[10]=CyanColor;}
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
