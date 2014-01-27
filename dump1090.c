@@ -1951,8 +1951,8 @@ void interactiveShowData(void) {
         a = a->next;
         count++;
     }
-    // while(count < 9) {printf("                                           \n"); count++;}
-	printf("\nadsbradar.ru 2013-2014\n");		
+    while(count < 10) {printf("                                           \n"); count++;}
+	printf("\nadsbradar.ru 2013-2014\n");	// \n в конце не уюирать! иначе мерцание!	
 }
 
 /* When in interactive mode If we don't receive new nessages within
