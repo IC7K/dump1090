@@ -1846,7 +1846,7 @@ void interactiveShowData(void) {
     // char blueFont[] = "\x1b[0;0;0;34m";   
     // char defaultFont[] = "\x1b[0m";
 
-    char FontColor[14]="\x1b[0;0;0;32m";
+    char FontColor[11]="\x1b[0;0;0;32m";
     char YellowColor[1]="3";
     char GreenColor[1]="2";
     char WhiteColor[1]="7";
@@ -1932,11 +1932,11 @@ void interactiveShowData(void) {
 
 				
 */		
-        if ((now - a->seen)>10) {FontColor[12]=WhiteColor[0];} else
+        if ((now - a->seen)>10) {FontColor[9]=WhiteColor[0];} else
 
-        if (altitude==0) {FontColor[12]=MagentaColor[0];} else               
+        if (altitude==0) {FontColor[9]=MagentaColor[0];} else               
 
-        if(vspeed<-1) {FontColor[12]=YellowColor[0];} else {FontColor[12]=CyanColor[0];}
+        if(vspeed<-1) {FontColor[9]=YellowColor[0];} else {FontColor[9]=CyanColor[0];}
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
