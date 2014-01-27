@@ -1847,11 +1847,11 @@ void interactiveShowData(void) {
     // char defaultFont[] = "\x1b[0m";
 
     char FontColor[]="\x1b[0;0;0;32m";
-    char YellowColor[]="3";
-    char GreenColor[]="2";
-    char WhiteColor[]="7";
-    char MagentaColor[]="5";
-    char CyanColor[]="6";    
+    char YellowColor[1]="3";
+    char GreenColor[1]="2";
+    char WhiteColor[1]="7";
+    char MagentaColor[1]="5";
+    char CyanColor[1]="6";    
 
 	char flevel[4];
 	flevel[3]='\0';	
