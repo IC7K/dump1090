@@ -1846,7 +1846,7 @@ void interactiveShowData(void) {
     char blueFont[] = "\x1b[0;0;0;34m";   
     char defaultFont[] = "\x1b[0m";
 
-    char FontColor[]=defaultFont;
+    char FontColor[]="\x1b[0m";
 
 	char flevel[4];
 	flevel[3]='\0';	
