@@ -1846,7 +1846,7 @@ void interactiveShowData(void) {
     // char blueFont[] = "\x1b[0;0;0;34m";   
     // char defaultFont[] = "\x1b[0m";
 
-    char FontColor[]="\x1b[0;0;0;32m";
+    char FontColor[14]="\x1b[0;0;0;32m";
     char YellowColor[1]="3";
     char GreenColor[1]="2";
     char WhiteColor[1]="7";
