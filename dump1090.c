@@ -1871,8 +1871,8 @@ void interactiveShowData(void) {
         progress);
 */		
 
-    // while(a && count < Modes.interactive_rows) {
-    while(a && count < 14) {        //14 строк всего на экране
+    while(a && count < Modes.interactive_rows) {
+    // while(a && count < 14) {        //14 строк всего на экране
         int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed;
 
 		
@@ -1952,7 +1952,7 @@ void interactiveShowData(void) {
         count++;
     }
 	
-    while(count < 14) {printf("                                           \n"); count++;}
+    while(count < 10) {printf("                                           \n"); count++;}
 	printf("\nadsbradar.ru 2013");		
 }
 
