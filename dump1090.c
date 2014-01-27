@@ -1808,6 +1808,31 @@ struct aircraft *interactiveReceiveData(struct modesMessage *mm) {
     return a;
 }
 
+   // char redBoldBlinking[] = "33[0;1;5;31m";
+   // char defaultConsole[] = "33[0m";
+   // printf("%s",redBoldBlinking);
+   // printf("NEED CHOCOLATE!\n");
+   // printf("%s",defaultConsole);
+   // return 0;
+
+//  The examples in this article use 33[a;b;c;dm, where a=0 resets the terminal, b=1 turns on bold,
+//  c=5 turns on blinking, d=31 sets the foreground colour to red, and the sequence is terminated by m.
+//  The defaultConsole has a single value 0, which is to reset the text to its default colour.
+//  Escape sequences can be used to turn on just one colour or text type.
+//  Add 30 to the colour value to control the foreground !
+//  Add 40 to the colour value to control the background !
+
+// Colours         Styles
+// 0 - black       0 - normal display
+// 1 - red         1 - bold on
+// 2 - green       2 - faint
+// 3 - yellow      3 - standout
+// 4 - blue        4 - underline
+// 5 - magenta     5 - blink
+// 6 - cyan        7 - reverse video
+// 7 - white
+
+
 /* Show the currently captured interactive data on screen. */
 void interactiveShowData(void) {
     struct aircraft *a = Modes.aircrafts;
@@ -1815,16 +1840,24 @@ void interactiveShowData(void) {
     char progress[4];
     int count = 0;
 
+   // char redFont[] = "33[0;0;0;31m";
+   // char yellowFont[] = "33[0;0;0;33m";
+   // char greenFont[] = "33[0;0;0;32m";       
+   // char defaultFont[] = "33[0m";
+
 	char flevel[4];
 	flevel[3]='\0';	
+	char tout[2];
+	tout[1]='\0';
 
     memset(progress,' ',3);
     progress[time(NULL)%3] = '>';
     progress[3] = '\0';
 
     printf("\x1b[H\x1b[2J");    /* Clear the screen */
+
     printf(
-"Hex%s Flight   Alt    Spd  Trk  Tout  VSpd\n"
+"Hex%s Flight   Alt    Spd  Trk   VSpd\n"
 "-------------------------------------------\n",
         progress);
 /*
@@ -1884,27 +1917,25 @@ void interactiveShowData(void) {
 				int vr = (mm->vert_rate_sign==0?1:-1) * (mm->vert_rate-1) * 64;				
 
 				
-*/		
+*/		if ((now - a->seen)>10) {tout[0]='*';} else {tout[0]=' ';}
+
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
-        printf("%-6s %-6s %-6d %-4d  %-3d  %d %-4d\n",
+        printf("%-6s %-6s %-6d %-4d  %-3d  %-4d  %-1s\n",
             a->hexaddr, a->flight, altitude, speed, 
-            a->track,
-            (int)(now - a->seen),vspeed);	
+            a->track,vspeed, tout);	
 		} else
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf("%-6s %-6s %-2s%-3d  %-4d  %-3d  %d %-4d\n",
+				printf("%-6s %-6s %-2s%-3d  %-4d  %-3d  %-4d  %-1s\n",
 				a->hexaddr, a->flight, flevel, altitude, speed, 
-				a->track,
-				(int)(now - a->seen), vspeed);	
+				a->track, vspeed, tout);	
 				} else
 				{
-				printf("%-6s %-6s %-3s%-3d %-4d  %-3d  %d %-4d\n",
+				printf("%-6s %-6s %-3s%-3d %-4d  %-3d  %-4d  %-1s\n",
 				a->hexaddr, a->flight, flevel, altitude, speed, 
-				a->track,
-				(int)(now - a->seen), vspeed);	
+				a->track, vspeed, tout);	
 				}
 			}
 /*        printf("%-6s %-8s %-9d %-7d %-7.03f   %-7.03f   %-3d   %-9ld %d sec\n",
