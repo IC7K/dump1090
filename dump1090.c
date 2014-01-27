@@ -1869,8 +1869,8 @@ void interactiveShowData(void) {
 // Totally 13 lines on the screen
 
     printf(
-"Hex%s Flight   Alt    Spd  Trk   VSpd       \n"
-"\x1b[0;0;0;31m---------------------------------------------\x1b[0m\n",
+"\x1b[0;0;0;36mHex%s Flight   Alt    Spd  Trk   VSpd       \n"
+"\x1b[0;0;0;31m---------------------------------------------\n",
         progress);
 /*
     printf(
