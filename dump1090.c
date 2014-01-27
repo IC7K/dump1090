@@ -1928,7 +1928,7 @@ void interactiveShowData(void) {
 				
 */		if ((now - a->seen)>10) {tout[0]='*';} else {tout[0]=' ';}
 
-        if(vspeed<-5) {FontColor="\x1b[0;0;0;33m";} else {FontColor="\x1b[0;0;0;32m";}
+        if(vspeed<-5) {FontColor[]="\x1b[0;0;0;33m";} else {FontColor[]="\x1b[0;0;0;32m";}
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
