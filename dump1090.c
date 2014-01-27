@@ -1854,7 +1854,10 @@ void interactiveShowData(void) {
     progress[time(NULL)%3] = '>';
     progress[3] = '\0';
 
-    printf("\x1b[H\x1b[2J");    /* Clear the screen */
+    printf("\x1b[H"); //\x1b[2J");    /* Clear the screen */
+
+
+// Totally 14 lines on the screen
 
     printf(
 "Hex%s Flight   Alt    Spd  Trk   VSpd\n"
@@ -1867,7 +1870,8 @@ void interactiveShowData(void) {
         progress);
 */		
 
-    while(a && count < Modes.interactive_rows) {
+    // while(a && count < Modes.interactive_rows) {
+    while(a && count < 14) {        //14 строк всего на экране
         int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed;
 
 		
@@ -1947,7 +1951,8 @@ void interactiveShowData(void) {
         count++;
     }
 	
-	printf("\nadsbradar.ru 2013\n");		
+    if (count < 13) { while(count < 14) {printf("                                           \n");} }
+	printf("\nadsbradar.ru 2013");		
 }
 
 /* When in interactive mode If we don't receive new nessages within
