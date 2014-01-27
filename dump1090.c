@@ -1855,8 +1855,7 @@ void interactiveShowData(void) {
     progress[3] = '\0';
 
     //http://www.linuxforu.com/2011/08/spicing-up-console-for-fun-profit-1/
-    printf("\x1b[0;0H");
-    // \x1b[2J");    /* Clear the screen */
+    printf("\x1b[H\x1b[2J");    /* Clear the screen */
 
 
 // Totally 14 lines on the screen
@@ -1953,7 +1952,7 @@ void interactiveShowData(void) {
         count++;
     }
 	
-    while(count < 13) {printf("                                           \n"); count++;}
+    while(count < 14) {printf("                                           \n"); count++;}
 	printf("\nadsbradar.ru 2013");		
 }
 
