@@ -1932,27 +1932,27 @@ void interactiveShowData(void) {
 
 				
 */		
-        if ((now - a->seen)>10) {FontColor[10]=WhiteColor;} else
+        if ((now - a->seen)>10) {FontColor[12]=WhiteColor;} else
 
-        if (altitude==0) {FontColor[10]=MagentaColor;} else               
+        if (altitude==0) {FontColor[12]=MagentaColor;} else               
 
-        if(vspeed<-5) {FontColor[10]=YellowColor;} else {FontColor[10]=CyanColor;}
+        if(vspeed<-1) {FontColor[12]=YellowColor;} else {FontColor[12]=CyanColor;}
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
-        printf("%s%-6s %-6s %-6d %-4d  %-3d  %-4d  \n",
+        printf("%s%-6s %-6s %-6d %-4d %-3d   %-4d  \n",
             FontColor, a->hexaddr, a->flight, altitude, speed, 
             a->track, vspeed);	
 		} else
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf("%s%-6s %-6s %-2s%-3d  %-4d  %-3d  %-4d  \n",
+				printf("%s%-6s %-6s %-2s%-3d  %-4d %-3d   %-4d  \n",
 				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
 				a->track, vspeed);	
 				} else
 				{
-				printf("%s%-6s %-6s %-3s%-3d %-4d  %-3d  %-4d  \n",
+				printf("%s%-6s %-6s %-3s%-3d %-4d %-3d   %-4d  \n",
 				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
 				a->track, vspeed);	
 				}
