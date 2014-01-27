@@ -1951,7 +1951,7 @@ void interactiveShowData(void) {
         count++;
     }
 	
-    if (count < 13) { while(count < 14) {printf("                                           \n");} }
+    if (count < 13) { while(count < 14) {printf("                                           \n"); count++;} }
 	printf("\nadsbradar.ru 2013");		
 }
 
