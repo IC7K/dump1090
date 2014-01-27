@@ -1951,7 +1951,7 @@ void interactiveShowData(void) {
         a = a->next;
         count++;
     }
-    while(count < 10) {printf("                                           \n"); count++;}
+    while(count < 9) {printf("                                           \n"); count++;}
 	printf("\nadsbradar.ru 2013-2014\n");	// \n в конце не уюирать! иначе мерцание!	
 }
 
