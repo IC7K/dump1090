@@ -77,7 +77,7 @@
  * at least greater than a given level for us to dump the signal. */
 #define MODES_DEBUG_NOPREAMBLE_LEVEL 25
 
-#define MODES_INTERACTIVE_REFRESH_TIME 250      /* Milliseconds */
+#define MODES_INTERACTIVE_REFRESH_TIME 2000     /* Milliseconds */
 #define MODES_INTERACTIVE_ROWS 15               /* Rows on screen */
 #define MODES_INTERACTIVE_TTL 60                /* TTL before being removed */
 
@@ -1854,8 +1854,8 @@ void interactiveShowData(void) {
 
 	char flevel[4];
 	flevel[3]='\0';	
-	char tout[2];
-	tout[1]='\0';
+	// char tout[2];
+	// tout[1]='\0';
 
     memset(progress,' ',3);
     progress[time(NULL)%3] = '>';
@@ -1864,9 +1864,9 @@ void interactiveShowData(void) {
     //http://www.linuxforu.com/2011/08/spicing-up-console-for-fun-profit-1/
     // printf("\x1b[H\x1b[2J");    /* Clear the screen */
 
-    printf("\x1b[H");   
+    printf("\x1b[H");   //устанавливаем курсор в координаты 0,0
 
-// Totally 14 lines on the screen
+// Totally 13 lines on the screen
 
     printf(
 "Hex%s Flight   Alt    Spd  Trk   VSpd       \n"
@@ -1880,7 +1880,7 @@ void interactiveShowData(void) {
 */		
 
     // while(a && count < Modes.interactive_rows) {
-    while(a && count < 10) {        //14 строк всего на экране
+    while(a && count < 10) {        //13 строк всего на экране
         int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed;
 
 		
