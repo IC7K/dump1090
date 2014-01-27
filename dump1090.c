@@ -1862,7 +1862,7 @@ void interactiveShowData(void) {
 
     printf(
 "Hex%s Flight   Alt    Spd  Trk   VSpd\n"
-"-------------------------------------------\n",
+"\x1b[0;0;0;31m-------------------------------------------\x1b[0m\n",
         progress);
 /*
     printf(
@@ -1951,9 +1951,8 @@ void interactiveShowData(void) {
         a = a->next;
         count++;
     }
-	
-    while(count < 9) {printf("                                           \n"); count++;}
-	printf("\nadsbradar.ru 2013");		
+    // while(count < 9) {printf("                                           \n"); count++;}
+	printf("\nadsbradar.ru 2013-2014");		
 }
 
 /* When in interactive mode If we don't receive new nessages within
