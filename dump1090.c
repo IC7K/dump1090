@@ -1854,7 +1854,8 @@ void interactiveShowData(void) {
     progress[time(NULL)%3] = '>';
     progress[3] = '\0';
 
-    printf("\x1b[H"); //\x1b[2J");    /* Clear the screen */
+    // printf("\x1b[H"); //
+    printf("\x1b[2J");    /* Clear the screen */
 
 
 // Totally 14 lines on the screen
