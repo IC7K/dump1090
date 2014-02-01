@@ -106,6 +106,7 @@ struct aircraft {
     char flight[9];     /* Flight number */
     char reg[9];        /* Registration number */	
     int altitude;       /* Altitude */
+    int prevaltitude;   /* Previous Altitude */    
     int speed;          /* Velocity computed from EW and NS components. */
 	int vspeed;			/* Vertical speed */
     int track;          /* Angle of flight. */
@@ -1576,6 +1577,7 @@ struct aircraft *interactiveCreateAircraft(uint32_t addr) {
     a->flight[0] = '\0';
 	a->reg[0] = '\0';
     a->altitude = 0;
+    a->prevaltitude = 0;    
     a->speed = 0;
     a->vspeed = 0;	
     a->track = 0;
@@ -1871,7 +1873,7 @@ void interactiveShowData(void) {
 // Totally 13 lines on the screen
 
     printf(
-"\x1b[0;0;0;32mHex%s Flight   Alt    Spd  Trk   VS         \n"
+"\x1b[0;0;0;32mHex%s Flight   Alt    Spd  Trk   VS  VSP    \n"
 "\x1b[0;0;0;31m---------------------------------------------\n",
         progress);
 /*
@@ -1882,8 +1884,10 @@ void interactiveShowData(void) {
 */		
 
     // while(a && count < Modes.interactive_rows) {
-    while(a && count < 12) {        //13 строк всего на экране
-        int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed;
+    while(a && count < 10) {        //13 строк всего на экране
+        int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed, vsfromprev=a->altitude-a->prevaltitude;
+
+        a->prevaltitude=a->altitude;
 
 		
         /* Convert units to metric if --metric was specified. */
@@ -1935,7 +1939,7 @@ void interactiveShowData(void) {
 */		
         if ((now - a->seen)>10) {FontColor[9]=WhiteColor[0];} else
 
-        if ((altitude*speed)==0) {FontColor[9]=MagentaColor[0];} else               
+        if ((altitude<50) && (vspeed==0)) {FontColor[9]=MagentaColor[0];} else               
 
         if(vspeed<-1) {FontColor[9]=YellowColor[0];} else
 
@@ -1948,21 +1952,21 @@ void interactiveShowData(void) {
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
-        printf("%s%-6s %-6s %-6d %-4d %-3d   %-4d  \n",
+        printf("%s%-6s %-6s %-6d %-4d %-3d   %-2d  %-4d\n",
             FontColor, a->hexaddr, a->flight, altitude, speed, 
-            a->track, vspeed);	
+            a->track, vspeed, vsfromprev);	
 		} else
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf("%s%-6s %-6s %-2s%-3d  %-4d %-3d   %-4d  \n",
+				printf("%s%-6s %-6s %-2s%-3d  %-4d %-3d   %-2d  %-4d\n",
 				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
-				a->track, vspeed);	
+				a->track, vspeed, vsfromprev);	
 				} else
 				{
-				printf("%s%-6s %-6s %-3s%-3d %-4d %-3d   %-4d  \n",
+				printf("%s%-6s %-6s %-3s%-3d %-4d %-3d   %-2d  %-4d\n",
 				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
-				a->track, vspeed);	
+				a->track, vspeed, vsfromprev);	
 				}
 			}
 /*        printf("%-6s %-8s %-9d %-7d %-7.03f   %-7.03f   %-3d   %-9ld %d sec\n",
@@ -1973,8 +1977,8 @@ void interactiveShowData(void) {
         a = a->next;
         count++;
     }
-    while(count < 12) {printf("                                             \n"); count++;}
-	printf("\x1b[0;0;0;37mskyrail .ru         adsbradar.aero 2011-2014 \n");	// \n в конце не убирать! иначе мерцание!	
+    while(count < 10) {printf("                                             \n"); count++;}
+	printf("\x1b[0;0;0;37mADS-B Radar v.2     adsbradar.aero 2011-2014 \n");	// \n в конце не убирать! иначе мерцание!	
 }
 
 /* When in interactive mode If we don't receive new nessages within
