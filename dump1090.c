@@ -1890,7 +1890,7 @@ void interactiveShowData(void) {
         // vsfromprev=a->altitude-a->prevaltitude;
         // a->prevaltitude=a->altitude;
 
-        double lathome=135.20166, lonhome=48.53527;
+        double lathome=48.545, lonhome=135.21028;
         double distancekm=6375*acos(sin(lathome)*sin(a->lat) + cos(lathome)*cos(a->lat)*cos(lonhome-a->lon));
 
         /* Convert units to metric if --metric was specified. */
