@@ -1896,8 +1896,12 @@ void interactiveShowData(void) {
         // vsfromprev=a->altitude-a->prevaltitude;
         // a->prevaltitude=a->altitude;
 
-        distancekm=6375*acos(sin(lathome)*sin(a->lat*rad) + cos(lathome)*cos(a->lat*rad)*cos(lonhome-a->lon*rad));
-
+        if (a->lat!=0 && a->lon!=0)
+        {
+            distancekm=6375*acos(sin(lathome)*sin(a->lat*rad) + cos(lathome)*cos(a->lat*rad)*cos(lonhome-a->lon*rad));
+            if (distancekm>999) distancekm=999;
+        }
+        
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric)
 		{
