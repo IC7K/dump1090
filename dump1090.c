@@ -1841,7 +1841,7 @@ void interactiveShowData(void) {
     time_t now = time(NULL);
     char progress[4];
     int count = 0;
-    double rad=3.1415926/180;
+    double rad=0,017453293;//3.141592653589793238463/180;
         
     //Distance from HAB point
     //change it to your preferred coordinates
