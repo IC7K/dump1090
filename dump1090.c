@@ -1841,6 +1841,11 @@ void interactiveShowData(void) {
     time_t now = time(NULL);
     char progress[4];
     int count = 0;
+        
+    //Distance from HAB point
+    //change it to your preferred coordinates
+    double lathome=48.545, lonhome=135.21028, distancekm=0;
+
 
     //http://www.linuxforu.com/2011/08/spicing-up-console-for-fun-profit-1/
     // char redFont[] = "\x1b[0;0;0;31m";
@@ -1890,10 +1895,7 @@ void interactiveShowData(void) {
         // vsfromprev=a->altitude-a->prevaltitude;
         // a->prevaltitude=a->altitude;
 
-        //Distance from HAB point
-        //change it to your preferred coordinates
-        double lathome=48.545, lonhome=135.21028;
-        double distancekm=6375*acos(sin(lathome)*sin(a->lat) + cos(lathome)*cos(a->lat)*cos(lonhome-a->lon));
+        distancekm=6375*acos(sin(lathome)*sin(a->lat) + cos(lathome)*cos(a->lat)*cos(lonhome-a->lon));
 
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric)
@@ -1957,19 +1959,19 @@ void interactiveShowData(void) {
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
-        printf("%s%-6s %-6s %-6d %-4d %-3d   %-2d %3.1f\n",
+        printf("%s%-6s %-6s %-6d %-4d %-3d   %-2d %.1f\n",
             FontColor, a->hexaddr, a->flight, altitude, speed, 
             a->track, vspeed, distancekm);	
 		} else
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf("%s%-6s %-6s %-2s%-3d  %-4d %-3d   %-2d %3.1f\n",
+				printf("%s%-6s %-6s %-2s%-3d  %-4d %-3d   %-2d %.1f\n",
 				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
 				a->track, vspeed, distancekm);	
 				} else
 				{
-				printf("%s%-6s %-6s %-3s%-3d %-4d %-3d   %-2d %3.1f\n",
+				printf("%s%-6s %-6s %-3s%-3d %-4d %-3d   %-2d %.1f\n",
 				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
 				a->track, vspeed, distancekm);	
 				}
