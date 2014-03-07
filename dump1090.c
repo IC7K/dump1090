@@ -1982,7 +1982,7 @@ void interactiveShowData(void) {
         a = a->next;
         count++;
     }
-    while(count < 10) {printf("                                              \n"); count++;}
+    while(count < 10) {printf("                                             \n"); count++;}
 	printf("\x1b[0;0;0;37mADS-B Radar v.3     adsbradar.aero 2011-2014 \n");	// \n в конце не убирать! иначе мерцание!	
 }
 
