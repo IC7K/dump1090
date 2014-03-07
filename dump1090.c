@@ -1885,11 +1885,14 @@ void interactiveShowData(void) {
 
     // while(a && count < Modes.interactive_rows) {
     while(a && count < 10) {        //13 строк всего на экране
-        int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed, vsfromprev=a->altitude-a->prevaltitude;
+        int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed;
 
-        a->prevaltitude=a->altitude;
+        // vsfromprev=a->altitude-a->prevaltitude;
+        // a->prevaltitude=a->altitude;
 
-		
+        double lathome=135.20166, lonhome=48.53527;
+        double distancekm=6375*ArcCos(sin(lathome)*sin(a->lat) + cos(lathome)*cos(a->lat)*cos(lonhome-a->lon));
+
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric)
 		{
@@ -1952,21 +1955,21 @@ void interactiveShowData(void) {
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
-        printf("%s%-6s %-6s %-6d %-4d %-3d   %-2d  %-4d\n",
+        printf("%s%-6s %-6s %-6d %-4d %-3d   %-2d  %7.01f\n",
             FontColor, a->hexaddr, a->flight, altitude, speed, 
-            a->track, vspeed, vsfromprev);	
+            a->track, vspeed, distancekm);	
 		} else
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf("%s%-6s %-6s %-2s%-3d  %-4d %-3d   %-2d  %-4d\n",
+				printf("%s%-6s %-6s %-2s%-3d  %-4d %-3d   %-2d  %7.01f\n",
 				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
-				a->track, vspeed, vsfromprev);	
+				a->track, vspeed, distancekm);	
 				} else
 				{
-				printf("%s%-6s %-6s %-3s%-3d %-4d %-3d   %-2d  %-4d\n",
+				printf("%s%-6s %-6s %-3s%-3d %-4d %-3d   %-2d  %7.01f\n",
 				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
-				a->track, vspeed, vsfromprev);	
+				a->track, vspeed, distancekm);	
 				}
 			}
 /*        printf("%-6s %-8s %-9d %-7d %-7.03f   %-7.03f   %-3d   %-9ld %d sec\n",
