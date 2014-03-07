@@ -1841,10 +1841,11 @@ void interactiveShowData(void) {
     time_t now = time(NULL);
     char progress[4];
     int count = 0;
+    double rad=3.1415926/180;
         
     //Distance from HAB point
     //change it to your preferred coordinates
-    double lathome=48.545, lonhome=135.21028, distancekm=0;
+    double lathome=48.545*rad, lonhome=135.21028*rad, distancekm=0;
 
 
     //http://www.linuxforu.com/2011/08/spicing-up-console-for-fun-profit-1/
@@ -1895,7 +1896,7 @@ void interactiveShowData(void) {
         // vsfromprev=a->altitude-a->prevaltitude;
         // a->prevaltitude=a->altitude;
 
-        distancekm=6375*acos(sin(lathome)*sin(a->lat) + cos(lathome)*cos(a->lat)*cos(lonhome-a->lon));
+        distancekm=6375*acos(sin(lathome)*sin(a->lat*rad) + cos(lathome)*cos(a->lat*rad)*cos(lonhome-a->lon*rad));
 
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric)
