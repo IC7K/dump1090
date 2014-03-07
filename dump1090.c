@@ -1959,19 +1959,20 @@ void interactiveShowData(void) {
 
 		if (flevel[0]=='\0') /* below 1000m all in meters, above in FlightLevels ex. FL330 */
 		{
-        printf("%s%-6s %-6s %-6d %-4d %-3d   %-2d %.1f\n",
+        //%-5.1 = all symsols 5, - - left, .1 - one decimal
+        printf("%s%-6s %-6s %-6d %-4d %-3d   %-2d %-5.1f\n",
             FontColor, a->hexaddr, a->flight, altitude, speed, 
             a->track, vspeed, distancekm);	
 		} else
 			{
 			if (flevel[2]=='\0') /* if 'FL' then 2 symbols, if 'FL0' then 3 symbols string show */
 				{
-				printf("%s%-6s %-6s %-2s%-3d  %-4d %-3d   %-2d %.1f\n",
+				printf("%s%-6s %-6s %-2s%-3d  %-4d %-3d   %-2d %-5.1f\n",
 				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
 				a->track, vspeed, distancekm);	
 				} else
 				{
-				printf("%s%-6s %-6s %-3s%-3d %-4d %-3d   %-2d %.1f\n",
+				printf("%s%-6s %-6s %-3s%-3d %-4d %-3d   %-2d %-5.1f\n",
 				FontColor, a->hexaddr, a->flight, flevel, altitude, speed, 
 				a->track, vspeed, distancekm);	
 				}
@@ -1984,7 +1985,7 @@ void interactiveShowData(void) {
         a = a->next;
         count++;
     }
-    while(count < 10) {printf("                                             \n"); count++;}
+    while(count < 10) {printf("                                              \n"); count++;}
 	printf("\x1b[0;0;0;37mADS-B Radar v.3     adsbradar.aero 2011-2014 \n");	// \n в конце не убирать! иначе мерцание!	
 }
 
