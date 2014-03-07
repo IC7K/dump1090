@@ -1891,7 +1891,7 @@ void interactiveShowData(void) {
         // a->prevaltitude=a->altitude;
 
         double lathome=135.20166, lonhome=48.53527;
-        double distancekm=6375*ArcCos(sin(lathome)*sin(a->lat) + cos(lathome)*cos(a->lat)*cos(lonhome-a->lon));
+        double distancekm=6375*acos(sin(lathome)*sin(a->lat) + cos(lathome)*cos(a->lat)*cos(lonhome-a->lon));
 
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric)
