@@ -1867,9 +1867,9 @@ void interactiveShowData(void) {
 	// char tout[2];
 	// tout[1]='\0';
 
-    // memset(progress,' ',3);
-    // progress[time(NULL)%3] = '>';
-    // progress[3] = '\0';
+    memset(progress,' ',3);
+    progress[time(NULL)%3] = '>';
+    progress[3] = '\0';
 
 
     // printf("\x1b[H\x1b[2J");    /* Clear the screen */
@@ -1879,7 +1879,7 @@ void interactiveShowData(void) {
 // Totally 13 lines on the screen
 
     printf(
-"\x1b[0;0;0;32mHex Flight   Alt    Spd  Trk   VS  Dst    \n"
+"\x1b[0;0;0;32mHex     Flight   Alt    Spd  Trk   VS  Dst    \n"
 "\x1b[0;0;0;31m---------------------------------------------\n");
 /*
     printf(
@@ -1992,7 +1992,7 @@ void interactiveShowData(void) {
         count++;
     }
     while(count < 10) {printf("                                             \n"); count++;}
-	printf("\x1b[0;0;0;37mADS-B Radar v.3     adsbradar.aero 2011-2014 \n");	// \n в конце не убирать! иначе мерцание!	
+	printf("\x1b[0;0;0;37mADS-B Radar v.3%s adsbradar.aero 2011-2014 \n", progress);	// \n в конце не убирать! иначе мерцание!	
 }
 
 /* When in interactive mode If we don't receive new nessages within
