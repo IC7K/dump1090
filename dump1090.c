@@ -1879,9 +1879,9 @@ void interactiveShowData(void) {
 // Totally 13 lines on the screen
 
     printf(
-"\x1b[0;0;0;32mHex%s Flight   Alt    Spd  Trk   VS  Dst    \n"
+"\x1b[0;0;0;32mHex Flight   Alt    Spd  Trk   VS  Dst    \n"
 "\x1b[0;0;0;31m---------------------------------------------\n",
-        progress);
+        );
 /*
     printf(
 " Hex    Flight   Altitude  Speed   Lat       Lon       Track  Messages Seen %s\n"
