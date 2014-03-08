@@ -1950,6 +1950,8 @@ void interactiveShowData(void) {
 
 				
 */		
+        FontColor[9]=WhiteColor[0];
+        
         if ((now - a->seen)>10) {FontColor[9]=WhiteColor[0];} else
 
         if ((altitude<50) && (vspeed==0)) {FontColor[9]=MagentaColor[0];} else               
