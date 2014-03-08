@@ -1889,6 +1889,8 @@ void interactiveShowData(void) {
         progress);
 */		
 
+    progress[0] = '\0';
+
     // while(a && count < Modes.interactive_rows) {
     while(a && count < 10) {        //13 строк всего на экране
         int altitude = a->altitude, speed = a->speed, vspeed = a->vspeed;
@@ -1900,7 +1902,7 @@ void interactiveShowData(void) {
         {
             distancekm=6375*acos(sin(lathome)*sin(a->lat*rad) + cos(lathome)*cos(a->lat*rad)*cos(lonhome-a->lon*rad));
             if (distancekm>999) distancekm=999;
-        }
+        } else distancekm=0;
 
         /* Convert units to metric if --metric was specified. */
         if (Modes.metric)
