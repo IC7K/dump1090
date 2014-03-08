@@ -1867,9 +1867,9 @@ void interactiveShowData(void) {
 	// char tout[2];
 	// tout[1]='\0';
 
-    memset(progress,' ',3);
-    progress[time(NULL)%3] = '>';
-    progress[3] = '\0';
+    // memset(progress,' ',3);
+    // progress[time(NULL)%3] = '>';
+    // progress[3] = '\0';
 
 
     // printf("\x1b[H\x1b[2J");    /* Clear the screen */
@@ -1880,8 +1880,7 @@ void interactiveShowData(void) {
 
     printf(
 "\x1b[0;0;0;32mHex Flight   Alt    Spd  Trk   VS  Dst    \n"
-"\x1b[0;0;0;31m---------------------------------------------\n",
-        );
+"\x1b[0;0;0;31m---------------------------------------------\n");
 /*
     printf(
 " Hex    Flight   Altitude  Speed   Lat       Lon       Track  Messages Seen %s\n"
@@ -1889,7 +1888,7 @@ void interactiveShowData(void) {
         progress);
 */		
 
-    memset(progress,' ',0);
+    // memset(progress,' ',0);
 
     // while(a && count < Modes.interactive_rows) {
     while(a && count < 10) {        //13 строк всего на экране
