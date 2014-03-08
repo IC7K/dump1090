@@ -1839,7 +1839,7 @@ struct aircraft *interactiveReceiveData(struct modesMessage *mm) {
 void interactiveShowData(void) {
     struct aircraft *a = Modes.aircrafts;
     time_t now = time(NULL);
-    // char progress[4];
+    char progress[4];
     // char *progress = malloc(4*sizeof(char));
     int count = 0;
     double rad=0.017453293;//3.141592653589793238463/180;
@@ -1868,10 +1868,10 @@ void interactiveShowData(void) {
 	// char tout[2];
 	// tout[1]='\0';
 
-    // memset(progress,' ',3);
-    // progress[time(NULL)%3] = '>';
-    // progress[3] = '\0';
-    int check=time(NULL)%3;
+    memset(progress,' ',3);
+    progress[time(NULL)%3] = '>';
+    progress[3] = '\0';
+    // int check=time(NULL)%3;
 
 
     // printf("\x1b[H\x1b[2J");    /* Clear the screen */
@@ -1881,8 +1881,8 @@ void interactiveShowData(void) {
 // Totally 13 lines on the screen
 
     printf(
-"\x1b[0;0;0;32mHex    Flight   Alt    Spd  Trk   VS  Dst    \n"
-"\x1b[0;0;0;31m---------------------------------------------\n");
+"\x1b[0;0;0;32mHex%sFlight   Alt    Spd  Trk   VS  Dst    \n"
+"\x1b[0;0;0;31m---------------------------------------------\n", progress);
 /*
     printf(
 " Hex    Flight   Altitude  Speed   Lat       Lon       Track  Messages Seen %s\n"
@@ -1995,7 +1995,7 @@ void interactiveShowData(void) {
         count++;
     }
     while(count < 10) {printf("                                             \n"); count++;}
-	printf("\x1b[0;0;0;37mADS-B Radar v.3 %-1d   adsbradar.aero 2011-2014 \n", check);	// \n в конце не убирать! иначе мерцание!	
+	printf("\x1b[0;0;0;37mADS-B Radar v.3     adsbradar.aero 2011-2014 \n", progress);	// \n в конце не убирать! иначе мерцание!	
     // free(progress);
 }
 
