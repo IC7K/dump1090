@@ -1889,7 +1889,7 @@ void interactiveShowData(void) {
         progress);
 */		
 
-    free(progress);
+    delete progress;
 
     // while(a && count < Modes.interactive_rows) {
     while(a && count < 10) {        //13 строк всего на экране
